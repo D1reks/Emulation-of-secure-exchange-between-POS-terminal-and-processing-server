@@ -4,7 +4,7 @@ Frameworks: Retrofit, Hilt, Coroutines, Okhttp
 
 UI: Jetpack Compose
 
-Tests: Integration, Unit
+Tests: Unit
 
 Instructions: Just build the project, enter a valid card number and amount.
 The request is sent via Retrofit, intercepted by an interceptor (mocking the backend response).
