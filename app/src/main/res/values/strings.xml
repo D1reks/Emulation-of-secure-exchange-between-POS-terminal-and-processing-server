@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">POS</string>
+    <string name="card_number">Номер карты</string>
+    <string name="amount">Сумма</string>
+    <string name="send_transaction">Отправить транзакцию</string>
+    <string name="transaction_history">История транзакций</string>
+    <string name="connection_error">Ошибка подключения</string>
 </resources>

@@ -29,7 +29,7 @@ android {
         }
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.4"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -48,6 +48,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.hilt.android)
     implementation(libs.androidx.runtime.android)
+    implementation(libs.androidx.media3.decoder)
+    implementation(libs.androidx.navigation.safe.args.generator)
     kapt(libs.hilt.compiler)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -65,8 +67,14 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     testImplementation(libs.junit)
+    testImplementation(kotlin("test"))
+    androidTestImplementation (libs.androidx.junit)
 }
 
 kapt {
     correctErrorTypes = true
+}
+
+configurations.all {
+    exclude(mapOf("group" to "xmlpull", "module" to "xmlpull"))
 }

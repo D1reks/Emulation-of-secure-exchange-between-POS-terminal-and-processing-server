@@ -4,7 +4,7 @@ import java.util.UUID
 
 data class Transaction (
     val id: String = UUID.randomUUID().toString(),
-    val cardPlan: String,
+    val cardPan: String,
     val amount: Long,
     val merchantId: String,
     val timestamp: Long = System.currentTimeMillis(),
