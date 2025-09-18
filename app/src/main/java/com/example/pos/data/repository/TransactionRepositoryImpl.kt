@@ -1,5 +1,6 @@
 package com.example.pos.data.repository
 
+import com.example.pos.core.network.PosClient
 import com.example.pos.data.mapper.TransactionMapper
 import com.example.pos.data.remote.RetrofitPosClient
 import com.example.pos.domain.model.Transaction
@@ -8,7 +9,7 @@ import com.example.pos.domain.repository.transaction.TransactionRepository
 import javax.inject.Inject
 
 class TransactionRepositoryImpl @Inject constructor(
-    private val posClient: RetrofitPosClient,
+    private val posClient: PosClient,
     private val mapper: TransactionMapper
 ) : TransactionRepository {
 

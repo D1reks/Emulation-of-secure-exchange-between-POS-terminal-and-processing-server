@@ -32,6 +32,11 @@ class CryptoIntegrationTest {
         }
 
         val hmac = cryptoManager.generateHmac(testData, key)
+
+        val wrongKey = ByteArray(32).apply { secureRandom.nextBytes(this) }
+        assertFalse("HMAC verification should fail with wrong key",
+            cryptoManager.verifyHmac(testData, wrongKey, hmac))
+
         assertTrue("HMAC should not be empty", hmac.isNotEmpty())
         assertTrue("HMAC verification should pass",
             cryptoManager.verifyHmac(testData, key, hmac))

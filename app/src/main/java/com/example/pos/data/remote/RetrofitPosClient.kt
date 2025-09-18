@@ -11,12 +11,13 @@ import android.util.Base64
 import com.example.pos.core.utils.HexDump
 import com.example.pos.core.utils.HexDump.buildPacket
 import com.example.pos.data.remote.DTO.EncryptedTransactionRequest
+import com.example.pos.domain.repository.key.KeyRepository
 import com.example.pos.domain.repository.key.KeyRepositoryImpl
 
 class RetrofitPosClient @Inject constructor(
     private val apiService: PosApiService,
     private val cryptoManager: CryptoManager,
-    private val keyRepository: KeyRepositoryImpl,
+    private val keyRepository: KeyRepository,
     private val tlvEncoder: TlvEncoder
 ) : PosClient {
 
