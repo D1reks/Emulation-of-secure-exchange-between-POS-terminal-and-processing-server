@@ -5,7 +5,7 @@ import com.example.pos.domain.model.Transaction
 
 class TransactionMapper {
 
-    fun mapToRequest(transaction: Transaction) : TransactionRequest{
+    fun mapToRequest(transaction: Transaction): TransactionRequest{
 
         return TransactionRequest(
             cardPan = transaction.cardPan,

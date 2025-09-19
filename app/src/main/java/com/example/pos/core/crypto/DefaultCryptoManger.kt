@@ -16,7 +16,7 @@ class DefaultCryptoManager @Inject constructor(
         private const val RSA_ALGORITHM = "RSA/ECB/OAEPWithSHA-256AndMGF1Padding"
     }
 
-    override fun generateHmac(data: ByteArray, key: ByteArray) : ByteArray {
+    override fun generateHmac(data: ByteArray, key: ByteArray): ByteArray {
         return try {
             val mac = Mac.getInstance("HmacSHA256")
             val secretKeySpec = SecretKeySpec(key, "HmacSHA256")
@@ -50,7 +50,7 @@ class DefaultCryptoManager @Inject constructor(
         }
     }
 
-    override fun decryptAesGcm(encryptedData: ByteArray, key: ByteArray, iv: ByteArray) : ByteArray {
+    override fun decryptAesGcm(encryptedData: ByteArray, key: ByteArray, iv: ByteArray): ByteArray {
         return try {
             val cipher = Cipher.getInstance("AES/GCM/NoPadding")
             val parameterSpec = GCMParameterSpec(GCM_TAG_LENGTH, iv)
@@ -63,7 +63,7 @@ class DefaultCryptoManager @Inject constructor(
         }
     }
 
-    override fun encryptRsa(data: ByteArray, publicKey: PublicKey) : ByteArray {
+    override fun encryptRsa(data: ByteArray, publicKey: PublicKey): ByteArray {
         return try {
             val cipher = Cipher.getInstance(RSA_ALGORITHM)
             cipher.init(Cipher.ENCRYPT_MODE, publicKey)
@@ -73,7 +73,7 @@ class DefaultCryptoManager @Inject constructor(
         }
     }
 
-   override fun decryptRsa(encryptedData: ByteArray, privateKey: PrivateKey) : ByteArray {
+   override fun decryptRsa(encryptedData: ByteArray, privateKey: PrivateKey): ByteArray {
         return try {
             val cipher = Cipher.getInstance(RSA_ALGORITHM)
             cipher.init(Cipher.DECRYPT_MODE, privateKey)
@@ -83,13 +83,13 @@ class DefaultCryptoManager @Inject constructor(
         }
     }
 
-   override fun generateAesKey() : ByteArray {
+   override fun generateAesKey(): ByteArray {
         return ByteArray(32).apply {
             SecureRandom().nextBytes(this)
         }
     }
 
-//   override fun loadPublicKeyFromPem(pemString: String) : PublicKey {
+//   override fun loadPublicKeyFromPem(pemString: String): PublicKey {
 //        return try {
 //            val publicKeyPem = pemString
 //                .replace("-----BEGIN PUBLIC KEY-----", "")

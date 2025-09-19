@@ -63,13 +63,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideTransactionMapper() : TransactionMapper {
+    fun provideTransactionMapper(): TransactionMapper {
         return TransactionMapper()
     }
 
     @Provides
     @Singleton
-    fun provideTimeoutHandler() : TimeoutHandler {
+    fun provideTimeoutHandler(): TimeoutHandler {
         return TimeoutHandler()
     }
 

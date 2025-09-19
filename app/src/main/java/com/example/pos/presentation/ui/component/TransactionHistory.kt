@@ -79,7 +79,6 @@ fun TransactionItem(transaction: Transaction) {
 
         Spacer(modifier = Modifier.height(4.dp))
 
-        // Вторая строка: статус и время
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier.fillMaxWidth()

@@ -14,7 +14,7 @@ class KeyRepositoryImpl @Inject constructor(
     @ApplicationContext private val context: Context,
     private val cryptoManager: CryptoManager,
     private val keyGenerator: KeyGenerator
-) : KeyRepository {
+): KeyRepository {
 
     private val sharedPrefs: SharedPreferences by lazy {
         context.getSharedPreferences("crypto_keys", Context.MODE_PRIVATE)

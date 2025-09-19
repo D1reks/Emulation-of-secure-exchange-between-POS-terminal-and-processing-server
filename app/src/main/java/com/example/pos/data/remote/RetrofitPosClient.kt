@@ -21,7 +21,7 @@ class RetrofitPosClient @Inject constructor(
     private val tlvEncoder: TlvEncoder
 ) : PosClient {
 
-    override suspend fun sendTransaction(request: TransactionRequest) : TransactionResponse {
+    override suspend fun sendTransaction(request: TransactionRequest): TransactionResponse {
 
         val tlvData = tlvEncoder.encodeTransaction(request)
         println("Raw tlv data")
@@ -51,7 +51,7 @@ class RetrofitPosClient @Inject constructor(
         return apiService.sendTransaction(encryptedRequest)
     }
 
-    override suspend fun requestKeyRotation() : Boolean {
+    override suspend fun requestKeyRotation(): Boolean {
         val response = apiService.rotateKey()
         return response.success
     }

@@ -40,7 +40,7 @@ class MockServerInterceptor : Interceptor {
 
     }
 
-    private fun handleTransactionRequest(request: Request) : Response {
+    private fun handleTransactionRequest(request: Request): Response {
         transactionCount++
 
         val isApproved = random.nextDouble() >= 0.03
@@ -61,7 +61,7 @@ class MockServerInterceptor : Interceptor {
         return buildMockResponse(request,responseBody)
     }
 
-    private fun buildMockResponse(request: Request, body: String) : Response {
+    private fun buildMockResponse(request: Request, body: String): Response {
 
         return Response.Builder()
             .code(200)

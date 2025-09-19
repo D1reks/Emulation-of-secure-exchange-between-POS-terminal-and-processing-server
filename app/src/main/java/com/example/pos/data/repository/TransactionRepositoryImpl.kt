@@ -15,7 +15,7 @@ class TransactionRepositoryImpl @Inject constructor(
 
     private val transactions = mutableListOf<Transaction>()
 
-    override suspend fun sendTransaction(transaction: Transaction) : Result<Transaction> {
+    override suspend fun sendTransaction(transaction: Transaction): Result<Transaction> {
         return try {
 
             val request = mapper.mapToRequest(transaction)
@@ -39,11 +39,11 @@ class TransactionRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getTransactions() : List<Transaction> {
+    override suspend fun getTransactions(): List<Transaction> {
         return transactions.toList()
     }
 
-    override suspend fun requestNewKey() : Result<Unit> {
+    override suspend fun requestNewKey(): Result<Unit> {
         return try {
             val success = posClient.requestKeyRotation()
             if (success) Result.success(Unit)
